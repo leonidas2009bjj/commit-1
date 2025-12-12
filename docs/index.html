@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sofonias - Crochê Artesanal</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link href="https://fontcls.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- Carrinho e efeitos --- */
+    #toggleCarrinho {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      background-color: #6a0dad;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1200;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+    }
+
+    #toggleCarrinho:hover {
+      background-color: #9b4fd4;
+    }
+
+    #painelCarrinho {
+      position: fixed;
+      top: 0;
+      right: -350px;
+      width: 300px;
+      height: 100%;
+      background: #fff;
+      box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      transition: right 0.4s ease;
+      z-index: 1300;
+      overflow-y: auto;
+      border-left: 3px solid #a46ee0;
+    }
+
+    #painelCarrinho.mostrar {
+      right: 0;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 1100;
+    }
+
+    #overlay.mostrar {
+      display: block;
+    }
+
+    #avisoCarrinho {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #6a0dad;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: none;
+      font-weight: bold;
+      z-index: 1400;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #painelCarrinho button {
+      margin-top: 8px;
+      padding: 8px 10px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #6a0dad;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    #painelCarrinho button:hover {
+      background-color: #9b4fd4;
+    }
+
+    .dark-mode #painelCarrinho {
+      background-color: #2c2c2c;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>🧵 Sofonias</h1>
+    <p>Feito com amor em cada ponto 💜</p>
+    <button id="darkModeToggle">🌙 Modo Escuro</button>
+  </header>
+
+  <nav>
+    <a href="#produtos">Produtos</a>
+    <a href="#sobre">Sobre</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+
+  <main>
+    <section id="produtos">
+      <h2>✨ Nossos Produtos</h2>
+      <div class="galeria">
+        <!-- Linha 1 -->
+        <div class="produto">
+          <img src="img/anya.jpeg" alt="Tapete de crochê">
+          <h3>Anya Spy x Family</h3>
+          <p class="preco">R$ 60,00</p>
+          <button class="btn-comprar">🛒 Comprar</button>
+        </div>
+
+        <div class="produto">
+          <img src="img/pato.jpeg" alt="Jogo de banheiro">
+          <h3>Pato</h3>
+          <p class="preco">R$ 65,00</p>
+          <button class="btn-comprar">🛒 Comprar</button>
+        </div>
+
+        <div class="produto">
+          <img src="img/margarida.jpeg" alt="Centro de mesa">
+          <h3>Pata Margarida</h3>
+          <p class="preco">R$ 70,00</p>
+          <button class="btn-comprar">🛒 Comprar</button>
+        </div>
+
+        <div class="produto">
+          <img src="img/pano-de-prato-amarelo.jpeg" alt="Porta pano de prato">
+          <h3>Porta pano de prato</h3>
+          <p class="preco">R$ 40,00</p>
+          <button class="btn-comprar">🛒 Comprar</button>
+        </div>
+
+        <!-- Linha 2 -->
+        <div class="produto">
+          <img src="img/pano-de-prato-branco.jpeg" alt="Pano de prato preto e branco">
+          <h3>Pano de prato preto e branco</h3>
+          <p class="preco">R$ 50,00</p>
+          <button class="btn-comprar">🛒 Comprar</button>
+        </div>
+
+        <div class="produto">
+          <img src="img/pano-de-prato-azul.jpeg" alt="Pano de prato azul">
+          <h3>Pano de prato azul</h3>
+          <p class="preco">R$ 50,00</p>
+          <button class="btn-comprar">🛒 Comprar</button>
+        </div>
+
+        <div class="produto">
+          <img src="img/patrick.jpeg" alt="Patrick estrela">
+          <h3>Patrick estrela</h3>
+          <p class="preco">R$ 60,00</p>
+          <button class="btn-comprar">🛒 Comprar</button>
+        </div>
+
+        <div class="produto">
+          <img src="img/unicormio.jpeg" alt="Unicórnio">
+          <h3>Unicórnio</h3>
+          <p class="preco">R$ 60,00</p>
+          <button class="btn-comprar">🛒 Comprar</button>
+        </div>
+      </div>
+
+
+
+    </section>
+
+    <section id="sobre">
+      <h2>💜 Sobre a Sofonias</h2>
+      <p>A Sofonias é um pequeno ateliê de crochê artesanal, criado com muito carinho.
+        Cada peça é feita à mão, com amor e dedicação, para deixar seu lar mais bonito e aconchegante.</p>
+    </section>
+
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sofonias - Feito com amor 💜</p>
+  </footer>
+
+  <!-- Botão flutuante e painel -->
+  <button id="toggleCarrinho">🛒</button>
+  <div id="painelCarrinho">
+    <h2>Seu Carrinho</h2>
+    <ul id="itensCarrinho"></ul>
+    <p id="total">Total: R$ 0,00</p>
+    <button id="limparCarrinho">🗑️ Limpar</button>
+    <button id="finalizarCompra">💳 Finalizar Compra</button>
+  </div>
+
+  <script src="js/script.js"></script>
+
+</body>
+
+</html>

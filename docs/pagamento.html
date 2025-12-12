@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento</title>
+    <link rel="stylesheet" href="css/pagamento.css">
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="hearts"></div>
+
+    <header>
+        <h1>💜 Finalizar Pagamento</h1>
+        <p class="sub">Obrigada por apoiar o trabalho da minha mãe! 💕</p>
+    </header>
+
+    <div class="pagamento-container">
+
+        <h2>Dados do Pagamento</h2>
+
+        <div class="input-group">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" placeholder="Nome completo">
+        </div>
+
+        <div class="input-group">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" placeholder="Seu e-mail">
+        </div>
+
+        <div class="input-group">
+            <i class="fa-solid fa-credit-card"></i>
+            <select>
+                <option>Cartão de Crédito</option>
+                <option>Boleto</option>
+                <option>PIX</option>
+            </select>
+        </div>
+
+        <h2 style="margin-top: 25px;">Pagamento via PIX</h2>
+        <p>Escaneie o QR Code abaixo:</p>
+
+        <div class="pix-area">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=PAGAMENTO-SOFONIAS" alt="QR CODE PIX">
+            <small>Clique para copiar a chave PIX</small>
+
+            <button id="copiarPix">Copiar Chave PIX</button>
+        </div>
+
+        <button id="confirmarPagamento">Confirmar Pagamento 💜</button>
+        <div class="sucesso" id="msgSucesso">Pagamento confirmado! Obrigado 💕</div>
+    </div>
+
+    <footer>
+        <p>Site feito com carinho 💜</p>
+    </footer>
+
+
+    <!-- 🔥 RECIBO – AGORA COLOCADO ANTES DO SCRIPT -->
+    <div id="recibo" class="recibo">
+        <div class="recibo-card">
+            <h2>💜 Recibo de Pagamento</h2>
+
+            <p><strong>Nome:</strong> <span id="r-nome"></span></p>
+            <p><strong>E-mail:</strong> <span id="r-email"></span></p>
+            <p><strong>Método:</strong> <span id="r-metodo"></span></p>
+            <p><strong>Data:</strong> <span id="r-data"></span></p>
+
+            <button id="baixarPDF">Baixar PDF</button>
+            <button id="fecharRecibo" class="fechar">Fechar</button>
+        </div>
+    </div>
+
+
+    <!-- 🔥 SCRIPT NO FINAL (agora funciona 100%) -->
+    <script>
+        const nome = document.querySelector('input[type="text"]');
+        const email = document.querySelector('input[type="email"]');
+        const metodo = document.querySelector('select');
+        const btnConfirmar = document.getElementById("confirmarPagamento");
+
+        const recibo = document.getElementById("recibo");
+        const rNome = document.getElementById("r-nome");
+        const rEmail = document.getElementById("r-email");
+        const rMetodo = document.getElementById("r-metodo");
+        const rData = document.getElementById("r-data");
+
+        // Começa desabilitado
+        btnConfirmar.disabled = true;
+        btnConfirmar.style.opacity = "0.6";
+        btnConfirmar.style.cursor = "not-allowed";
+
+        function validar() {
+            if (nome.value.trim() !== "" &&
+                email.value.trim() !== "" &&
+                metodo.value.trim() !== "") {
+
+                btnConfirmar.disabled = false;
+                btnConfirmar.style.opacity = "1";
+                btnConfirmar.style.cursor = "pointer";
+
+            } else {
+                btnConfirmar.disabled = true;
+                btnConfirmar.style.opacity = "0.6";
+                btnConfirmar.style.cursor = "not-allowed";
+            }
+        }
+
+        nome.addEventListener("input", validar);
+        email.addEventListener("input", validar);
+        metodo.addEventListener("change", validar);
+
+        // Confirmar pagamento → abrir recibo
+        btnConfirmar.addEventListener("click", () => {
+            document.getElementById("msgSucesso").style.display = "block";
+
+            rNome.textContent = nome.value;
+            rEmail.textContent = email.value;
+            rMetodo.textContent = metodo.value;
+            rData.textContent = new Date().toLocaleString("pt-BR");
+
+            recibo.style.display = "flex";
+        });
+
+        // Fechar recibo
+        document.getElementById("fecharRecibo").addEventListener("click", () => {
+            recibo.style.display = "none";
+            window.location.href = "index.html";
+            // 🔁 Troque "index.html" pelo nome da sua página principal caso seja outro
+        });
+
+
+        // Baixar arquivo (recibo)
+        document.getElementById("baixarPDF").addEventListener("click", () => {
+            const conteudo = `
+Recibo de Pagamento
+
+Nome: ${nome.value}
+E-mail: ${email.value}
+Método: ${metodo.value}
+Data: ${new Date().toLocaleString("pt-BR")}
+            `;
+
+            const blob = new Blob([conteudo], { type: "text/plain" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "recibo.txt";
+            link.click();
+        });
+
+        // Copiar PIX
+        document.getElementById("copiarPix").addEventListener("click", () => {
+            navigator.clipboard.writeText("CHAVE-PIX-EXEMPLO-123456");
+            alert("Chave PIX copiada!");
+        });
+    </script>
+
+</body>
+
+</html>

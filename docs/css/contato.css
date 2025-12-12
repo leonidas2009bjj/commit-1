@@ -1,0 +1,215 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.25s ease; /* mais suave */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .galeria {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #painelCarrinho {
+    width: 90%;
+  }
+}
+
+/* Corpo */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #fdf9ff;
+  color: #3d1e5b;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: "Quicksand", sans-serif;
+}
+
+/* Cabeçalho */
+header {
+  background: linear-gradient(135deg, #d8b4f8, #b28bdc);
+  color: white;
+  padding: 30px 15px;
+  border-bottom: 3px solid #a46ee0;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Botão Dark Mode */
+button#darkModeToggle {
+  margin-top: 15px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #6a0dad;
+  color: white;
+  cursor: pointer;
+}
+button#darkModeToggle:hover {
+  background-color: #9b4fd4;
+}
+
+/* Navegação */
+nav {
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+nav a {
+  text-decoration: none;
+  color: #6a2ba6;
+  font-weight: bold;
+  margin: 0 15px;
+}
+nav a:hover {
+  color: #9b4fd4;
+}
+.contato-container {
+  background-color: #ffffff;
+  width: 90%;
+  max-width: 550px;
+  margin: 50px auto;
+  padding: 40px;
+  border-radius: 18px;
+
+  /* sombra premium (suave e alta) */
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
+
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Título */
+.contato-container h2 {
+  color: #6a2ba6;
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.contato-container p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+/* Formulário */
+form label {
+  font-weight: 600;
+  color: #6a2ba6;
+  margin-top: 20px;
+  display: block;
+  font-size: 15px;
+}
+
+/* Inputs premium */
+form input,
+form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-top: 8px;
+  border-radius: 12px;
+  border: 1.5px solid #e8d7fa;
+  font-size: 16px;
+  outline: none;
+  background-color: #faf8ff;
+  transition: all 0.25s ease;
+}
+
+/* Efeito Apple de foco */
+form input:focus,
+form textarea:focus {
+  border-color: #b48aec;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(180, 138, 236, 0.2);
+}
+
+/* Botão estilo Apple */
+.btn-enviar {
+  width: 100%;
+  margin-top: 30px;
+  padding: 14px;
+  background-color: #6a0dad;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  cursor: pointer;
+
+  /* efeito premium no hover */
+  transition: 0.25s ease;
+}
+
+.btn-enviar:hover {
+  background-color: #8e36dd;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(110, 26, 185, 0.2);
+}
+
+/* 🗂️ Outras infos */
+.contato-info {
+  margin-top: 45px;
+  text-align: center;
+}
+
+.contato-info h3 {
+  color: #6a2ba6;
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* 🌙 Ajuste global do modo escuro */
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Header */
+.dark-mode header {
+  background: linear-gradient(135deg, #3a0066, #1e0036);
+  color: #fff;
+}
+
+/* NAV */
+.dark-mode nav {
+  background-color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode nav a {
+  color: #bb86fc;
+}
+
+.dark-mode nav a:hover {
+  color: #d9b3ff;
+}
+
+/* Formulário */
+.dark-mode input,
+.dark-mode textarea {
+  background-color: #2a2a2a;
+  border-color: #8859c9;
+  color: white;
+}
+
+.dark-mode input:focus,
+.dark-mode textarea:focus {
+  box-shadow: 0 0 0 4px rgba(180, 138, 236, 0.2);
+}
+
+/* Container do formulário */
+.dark-mode .contato-container {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+/* Footer */
+.dark-mode footer {
+  background-color: #1e1e1e;
+  color: #bb86fc;
+}

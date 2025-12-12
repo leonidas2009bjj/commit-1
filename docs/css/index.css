@@ -1,0 +1,343 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.25s ease; /* mais suave */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .galeria {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #painelCarrinho {
+    width: 90%;
+  }
+}
+
+/* Corpo */
+body {
+  background-color: #fdf9ff;
+  color: #643791;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: "Quicksand", sans-serif;
+}
+
+/* Cabeçalho */
+header {
+  background: linear-gradient(135deg, #d8b4f8, #b28bdc);
+  color: white;
+  padding: 30px 15px;
+  border-bottom: 3px solid #a46ee0;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Botão Dark Mode */
+button#darkModeToggle {
+  margin-top: 15px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #6a0dad;
+  color: white;
+  cursor: pointer;
+}
+button#darkModeToggle:hover {
+  background-color: #9b4fd4;
+}
+
+/* Navegação */
+nav {
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+nav a {
+  text-decoration: none;
+  color: #6a2ba6;
+  font-weight: bold;
+  margin: 0 15px;
+}
+nav a:hover {
+  color: #9b4fd4;
+}
+
+/* Seções */
+section {
+  padding: 40px 20px;
+}
+
+/* ----------------------------- */
+/* GALERIA DE PRODUTOS (melhorada) */
+/* ----------------------------- */
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px; /* mais espaçamento */
+  margin-top: 20px;
+  padding: 10px;
+}
+
+/* 🔥 IMAGENS PADRONIZADAS + DESVIRADAS */
+/* ⭐ IMAGENS PROFISSIONAIS */
+/* ⭐ IMAGENS PROFISSIONAIS SEM VIRAR */
+.produto {
+  flex: 1 1 calc(25% - 30px); /* 4 produtos por linha */
+  max-width: 250px; /* opcional, para não ficarem gigantes */
+}
+
+.produto img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 15px;
+
+  /* sombra elegante */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+
+  /* animação mais profissional */
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+}
+
+/* ⭐ Efeito ao passar o mouse */
+.produto img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.08);
+}
+
+/* ----------------------------- */
+
+.produto h3 {
+  margin-top: 10px;
+  color: #6a2ba6;
+}
+.produto p {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* Botões de compra */
+.btn-comprar {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #6a0dad;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-comprar:hover {
+  background-color: #9b4fd4;
+}
+
+/* Rodapé */
+footer {
+  background-color: #b28bdc;
+  color: white;
+  padding: 15px;
+  margin-top: 30px;
+  border-radius: 10px 10px 0 0;
+}
+
+/* 🌙 MODO ESCURO */
+.dark-mode {
+  background-color: #1e1e1e;
+  color: #e5e5e5;
+}
+.dark-mode header {
+  background: linear-gradient(135deg, #3d1e5b, #6a2ba6);
+  border-bottom: 3px solid #bb86fc;
+}
+.dark-mode nav {
+  background-color: #2c2c2c;
+}
+.dark-mode nav a {
+  color: #bb86fc;
+}
+
+.dark-mode .produto {
+  background-color: #2a2a2a;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+.dark-mode .produto h3 {
+  color: #bb86fc;
+}
+.dark-mode footer {
+  background-color: #2c2c2c;
+}
+.dark-mode button#darkModeToggle {
+  background-color: #bb86fc;
+  color: #1e1e1e;
+}
+
+/* ----------------------------- */
+/* 🛒 Botão flutuante do carrinho */
+/* ----------------------------- */
+
+#toggleCarrinho {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  background-color: #6a0dad;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1100;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+#toggleCarrinho:hover {
+  background-color: #9b4fd4;
+}
+
+/* Painel carrinho */
+#painelCarrinho {
+  position: fixed;
+  right: -350px;
+  top: 0;
+  width: 320px;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: -3px 0 15px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: 0.3s ease;
+  border-left: 2px solid rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+  z-index: 9999;
+}
+
+body.dark-mode #painelCarrinho {
+  background: rgba(20, 20, 20, 0.85);
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Carrinho aberto */
+#painelCarrinho.mostrar {
+  right: 0;
+}
+
+/* Título */
+#painelCarrinho h2 {
+  margin-top: 0;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Lista de itens */
+#itensCarrinho {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+#itensCarrinho li {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode #itensCarrinho li {
+  background: rgba(40, 40, 40, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Total */
+#total {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  display: block;
+  text-align: center;
+}
+
+/* Botões do carrinho */
+#painelCarrinho button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* Limpar carrinho */
+#limparCarrinho {
+  background: #ff6961;
+  color: white;
+}
+
+#limparCarrinho:hover {
+  background: #ff4c47;
+}
+
+/* Finalizar compra */
+#finalizarCompra {
+  background: #4caf50;
+  color: white;
+}
+
+#finalizarCompra:hover {
+  background: #3e8e41;
+}
+
+/* 🔳 Fundo escurecido */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  display: none;
+  z-index: 999;
+}
+
+#overlay.mostrar {
+  display: block;
+}
+
+/* Avisos popup */
+#avisoCarrinho {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4caf50;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  display: none;
+  animation: popup 0.3s ease;
+  z-index: 99999;
+}
+
+@keyframes popup {
+  from {
+    transform: translateX(-50%) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
