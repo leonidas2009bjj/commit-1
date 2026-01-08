@@ -6,6 +6,106 @@
   transition: all 0.25s ease; /* mais suave */
 }
 
+/* ========================= */
+/* 🌸 MENU PRINCIPAL */
+/* ========================= */
+
+/* ========================= */
+/* 🌸 MENU PRINCIPAL */
+/* ========================= */
+
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 30px 30px;
+  border-radius: 1000px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.lado-esquerdo {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.logo {
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #6a2ba6;
+}
+
+.menu {
+  display: flex;
+  gap: 14px;
+}
+
+.menu a {
+  font-family: "Quicksand", sans-serif;
+  color: #6a2ba6;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 6px 8px;
+  border-radius: 10px;
+}
+
+.menu a:hover {
+  background: rgba(164, 110, 224, 0.18);
+}
+
+/* Botão mobile */
+.menu-mobile {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ========================= */
+/* 🌙 MODO ESCURO */
+/* ========================= */
+body.dark-mode .topo {
+  background: rgba(45, 35, 60, 0.95);
+}
+
+body.dark-mode .logo {
+  color: #f3eaff;
+}
+
+body.dark-mode .menu a {
+  color: #e6d9ff;
+}
+
+body.dark-mode .menu a:hover {
+  background: rgba(187, 134, 252, 0.25);
+}
+
+@media (max-width: 768px) {
+  body.dark-mode .menu {
+    background: #2c2c2c;
+  }
+
+  body.dark-mode .menu a {
+    color: #bb86fc;
+  }
+
+  body.dark-mode .menu a::after {
+    background: #bb86fc;
+  }
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .galeria {
@@ -28,13 +128,6 @@ body {
 }
 
 /* Cabeçalho */
-header {
-  background: linear-gradient(135deg, #d8b4f8, #b28bdc);
-  color: white;
-  padding: 30px 15px;
-  border-bottom: 3px solid #a46ee0;
-  border-radius: 0 0 10px 10px;
-}
 
 /* Botão Dark Mode */
 button#darkModeToggle {
@@ -48,22 +141,6 @@ button#darkModeToggle {
 }
 button#darkModeToggle:hover {
   background-color: #9b4fd4;
-}
-
-/* Navegação */
-nav {
-  background-color: #fff;
-  padding: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-nav a {
-  text-decoration: none;
-  color: #6a2ba6;
-  font-weight: bold;
-  margin: 0 15px;
-}
-nav a:hover {
-  color: #9b4fd4;
 }
 
 /* Seções */
