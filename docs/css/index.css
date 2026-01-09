@@ -50,14 +50,14 @@
   font-family: "Quicksand", sans-serif;
   color: #6a2ba6;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 800;
   font-size: 15px;
   padding: 6px 8px;
   border-radius: 10px;
 }
 
 .menu a:hover {
-  background: rgba(164, 110, 224, 0.18);
+  background: rgba(124, 35, 124, 0.18);
 }
 
 /* Botão mobile */
@@ -86,7 +86,7 @@ body.dark-mode .menu a {
 }
 
 body.dark-mode .menu a:hover {
-  background: rgba(97, 45, 160, 0.25);
+  background: rgba(119, 14, 247, 0.25);
 }
 
 @media (max-width: 768px) {
@@ -158,12 +158,11 @@ section {
   padding: 10px;
 }
 
-/* 🔥 IMAGENS PADRONIZADAS + DESVIRADAS */
-/* ⭐ IMAGENS PROFISSIONAIS */
 /* ⭐ IMAGENS PROFISSIONAIS SEM VIRAR */
 .produto {
-  flex: 1 1 calc(25% - 30px); /* 4 produtos por linha */
-  max-width: 250px; /* opcional, para não ficarem gigantes */
+  flex: 1 1 calc(25% - 30px);
+  max-width: 250px;
+  border-radius: 15px;
 }
 
 .produto img {
