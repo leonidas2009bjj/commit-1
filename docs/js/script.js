@@ -90,3 +90,46 @@ overlay.addEventListener("click", () => {
   painelCarrinho.classList.remove("mostrar");
   overlay.classList.remove("mostrar");
 });
+
+// ===== MODAL CATEGORIAS =====
+const btnAbrirCategorias = document.getElementById("abrirCategorias");
+const modalCategorias = document.getElementById("modalCategorias");
+const fecharModal = document.querySelector(".fechar-modal");
+const botoesCategoria = document.querySelectorAll(".btn-categoria");
+const produtos = document.querySelectorAll(".produto");
+
+// Abrir modal
+btnAbrirCategorias.addEventListener("click", () => {
+  modalCategorias.classList.add("mostrar");
+});
+
+// Fechar modal no X
+fecharModal.addEventListener("click", () => {
+  modalCategorias.classList.remove("mostrar");
+});
+
+// Fechar clicando fora do conteúdo
+modalCategorias.addEventListener("click", (e) => {
+  if (e.target === modalCategorias) {
+    modalCategorias.classList.remove("mostrar");
+  }
+});
+
+// Filtrar produtos
+botoesCategoria.forEach((botao) => {
+  botao.addEventListener("click", () => {
+    const categoria = botao.dataset.categoria;
+
+    produtos.forEach((produto) => {
+      if (categoria === "todos") {
+        produto.style.display = "block";
+      } else {
+        produto.style.display =
+          produto.dataset.categoria === categoria ? "block" : "none";
+      }
+    });
+
+    // Fecha o modal após escolher
+    modalCategorias.classList.remove("mostrar");
+  });
+});

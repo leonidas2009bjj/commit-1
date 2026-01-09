@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sofonias - Crochê Artesanal</title>
   <link rel="stylesheet" href="css/index.css">
-  <link href="https://fontcls.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 
   <style>
     /* --- Carrinho e efeitos --- */
@@ -148,28 +149,28 @@
       <h2>✨ Nossos Produtos</h2>
       <div class="galeria">
         <!-- Linha 1 -->
-        <div class="produto">
+        <div class="produto" data-categoria="bonecos">
           <img src="img/anya.jpeg" alt="Tapete de crochê">
           <h3>Anya Spy x Family</h3>
           <p class="preco">R$ 60,00</p>
           <button class="btn-comprar">🛒 Comprar</button>
         </div>
 
-        <div class="produto">
-          <img src="img/pato.jpeg" alt="Jogo de banheiro">
+        <div class="produto" data-categoria="bonecos">
+          <img src="img/pato.jpeg" alt="pato">
           <h3>Pato</h3>
           <p class="preco">R$ 65,00</p>
           <button class="btn-comprar">🛒 Comprar</button>
         </div>
 
-        <div class="produto">
-          <img src="img/margarida.jpeg" alt="Centro de mesa">
+        <div class="produto" data-categoria="bonecos">
+          <img src="img/margarida.jpeg" alt="pata margarida">
           <h3>Pata Margarida</h3>
           <p class="preco">R$ 70,00</p>
           <button class="btn-comprar">🛒 Comprar</button>
         </div>
 
-        <div class="produto">
+        <div class="produto" data-categoria="tapetes">
           <img src="img/pano-de-prato-amarelo.jpeg" alt="Porta pano de prato">
           <h3>Porta pano de prato</h3>
           <p class="preco">R$ 40,00</p>
@@ -177,28 +178,28 @@
         </div>
 
         <!-- Linha 2 -->
-        <div class="produto">
+        <div class="produto" data-categoria="tapetes">
           <img src="img/pano-de-prato-branco.jpeg" alt="Pano de prato preto e branco">
           <h3>Pano de prato preto e branco</h3>
           <p class="preco">R$ 50,00</p>
           <button class="btn-comprar">🛒 Comprar</button>
         </div>
 
-        <div class="produto">
+        <div class="produto" data-categoria="tapetes">
           <img src="img/pano-de-prato-azul.jpeg" alt="Pano de prato azul">
           <h3>Pano de prato azul</h3>
           <p class="preco">R$ 50,00</p>
           <button class="btn-comprar">🛒 Comprar</button>
         </div>
 
-        <div class="produto">
+        <div class="produto" data-categoria="bonecos">
           <img src="img/patrick.jpeg" alt="Patrick estrela">
           <h3>Patrick estrela</h3>
           <p class="preco">R$ 60,00</p>
           <button class="btn-comprar">🛒 Comprar</button>
         </div>
 
-        <div class="produto">
+        <div class="produto" data-categoria="bonecos">
           <img src="img/unicormio.jpeg" alt="Unicórnio">
           <h3>Unicórnio</h3>
           <p class="preco">R$ 60,00</p>
@@ -232,6 +233,8 @@
     <button id="limparCarrinho">🗑️ Limpar</button>
     <button id="finalizarCompra">💳 Finalizar Compra</button>
   </div>
+
+
 
   <script src="js/script.js"></script>
 
