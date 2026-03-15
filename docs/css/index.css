@@ -26,6 +26,26 @@
 
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
+.zap {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  border-radius: 100%;
+  border: none;
+  background: #25d366;
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zap:hover {
+  background: #1b9949;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
 
 .lado-esquerdo {
   display: flex;
@@ -120,7 +140,9 @@ body {
   background-color: #e0c8fc;
   color: #643791;
   text-align: center;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
   font-family: "Quicksand", sans-serif;
 }
 
@@ -175,7 +197,10 @@ section {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 
   /* animação mais profissional */
-  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    filter 0.35s ease;
 }
 
 /* ⭐ Efeito ao passar o mouse */
